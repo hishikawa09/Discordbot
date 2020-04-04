@@ -27,7 +27,7 @@ bot.command(:omikuji) do |event|
     elsif number <= 9
       unsei = "凶。"
     else
-      unsei = "大凶だよ。でもいいことあるさ。"
+      unsei = "大凶...でもいいことあるさ。"
   end
 
   event.respond "#{unsei}"
