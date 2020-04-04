@@ -5,10 +5,32 @@ require 'discordrb'
 TOKEN = ENV['DISCORD_BOT_TOKEN']
 TOKEN.freeze
 
-bot = Discordrb::Commands::CommandBot.new token: TOKEN, prefix: '/'
+bot = Discordrb::Commands::CommandBot.new token: TOKEN, prefix: '!'
 
 bot.command(:ping) do |event|
-  event.respond 'pong'
+  event.respond 'pong!'
+end
+
+###おみくじ###
+bot.command(:omikuji) do |event|
+
+  number = rand(1..10)
+
+  if number == 1
+      unsei = "大吉！良かったね。"
+    elsif number <= 3
+      unsei = "中吉。"
+    elsif number <= 5
+      unsei = "小吉。"
+    elsif number <= 7
+      unsei = "吉。"
+    elsif number <= 9
+      unsei = "凶。"
+    else
+      unsei = "大凶だよ。でもいいことあるさ。"
+  end
+
+  event.respond "#{unsei}"
 end
 
 bot.run
