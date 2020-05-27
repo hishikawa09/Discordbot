@@ -33,10 +33,4 @@ bot.command(:omikuji) do |event|
   event.respond "#{unsei}"
 end
 
-###ダイスロール###
-bot.command(:1d100) do |event|
-  num = rand(1..100)
-  event.respond "1d100= #{num}"
-end
-
 bot.run
