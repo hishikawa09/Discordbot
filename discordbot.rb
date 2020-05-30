@@ -33,4 +33,40 @@ bot.command(:omikuji) do |event|
   event.respond "#{unsei}"
 end
 
+###ダイスロール###
+bot.command(:d1d100) do |event|
+  num = rand(1..100)
+  event.respond "1d100= #{num}"
+end
+
+
+###にゃーん###
+bot.command(:nyan) do |event|
+  event.respond "にゃーん"
+end
+
+###ブキルーレット（簡易）###
+bot.command(:buki) do |event|
+
+  roulette = rand(1..8)
+
+  if roulette == 1
+      weapon = "ノヴァをもうちょっと信じてみよう"
+    elsif roulette == 2
+      weapon = ".52ガロンデコ"
+    elsif roulette == 3
+      weapon = "ヒーローブラシ"
+    elsif roulette == 4
+      weapon = "エクスプロッシャーカスタム"
+    elsif roulette == 5
+      weapon = ".52ガロンベッチュー"
+    elsif roulette == 6
+      weapon = "人速黒ZAP"
+    else
+      weapon = "薬飲んで、寝ろ"
+  end
+
+  event.respond "今日は#{weapon}。"
+end
+
 bot.run
