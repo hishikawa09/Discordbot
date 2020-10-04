@@ -14,6 +14,15 @@ end
 
 ### help ###
 bot.command(:help) do |event|
+
+  def help_message
+    message  = "`!omikuji : おみくじが引けるよ。試しに一回引いてみない？\n"
+    message += "!d1d100 :1D100のサイコロを振るよ。何が出るかな？\n"
+    message += "!nyan : にゃーん！\n"
+    message += "!ping : テスト用。\n"
+    message += "!help : これ。\n`"
+  end
+
   event.respond(help_message)
 end
 
@@ -76,12 +85,5 @@ bot.command(:buki) do |event|
   event.respond "今日は#{weapon}。"
 end
 
-def help_message
-  message  = "!omikuji : おみくじが引けるよ。試しに一回引いてみない？:\n"
-  message += "!nyan : にゃーん！:\n"
-  message += "!d1d100 :1D100のサイコロを振るよ。何が出るかな？:\n"
-  message += "!ping : テスト用。\n"
-  message += "!help : これ。\n"
-end
 
 bot.run
