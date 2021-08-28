@@ -17,7 +17,8 @@ bot.command(:help) do |event|
 
   def help_message
     message  = "`!omikuji : おみくじが引けるよ。試しに一回引いてみない？\n"
-    message += "!d1d100 :1D100のサイコロを振るよ。何が出るかな？\n"
+    message += "!d1d100 : 1D100のサイコロを振るよ。何が出るかな？\n"
+    message += "!janken : じゃんけんするよ～（未実装）\n"
     message += "!nyan : にゃーん！\n"
     message += "!ping : テスト用。\n"
     message += "!help : これ。\n`"
@@ -85,5 +86,20 @@ bot.command(:buki) do |event|
   event.respond "今日は#{weapon}。"
 end
 
+###じゃんけん（仮）###
+bot.command(:janken) do |event|
+  jnkn = rand(1..3)
+
+  if jnkn == 1
+      rsp = "ぐー！"
+    elsif jnkn == 2
+      rsp = "ちょき。"
+    else
+      rsp = "ぱー！"
+  end
+
+  event.respond "#{rsp}"
+
+end
 
 bot.run
